@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const LogInForm = ({setIsLoggedIn}) => {
@@ -16,11 +16,11 @@ const LogInForm = ({setIsLoggedIn}) => {
 
     const[showPassword, setShowPassword] = useState(false)
 
-    function changeHandler(){
+    function changeHandler(event){
         setFormData( (prevData) => (
             {
                 ...prevData,
-                [Event.target.name]:Event.target.value,
+                [event.target.name]:event.target.value,
             }
         ))
     }
@@ -28,7 +28,7 @@ const LogInForm = ({setIsLoggedIn}) => {
     function submitHandler(event) {
         event.preventDefault();
         setIsLoggedIn(true);
-        toast.success("Logged In");
+        toast.success("Logged in!")
         console.log("Printing the formData ");
         console.log(formData)
         navigate("/dashboard");
@@ -42,6 +42,7 @@ const LogInForm = ({setIsLoggedIn}) => {
             <input 
             required
             type="email"
+            autoComplete="false"
             value={formData.email}
             onChange={changeHandler} 
             placeholder="enter email id"
@@ -55,6 +56,7 @@ const LogInForm = ({setIsLoggedIn}) => {
             <input 
             required
             type={showPassword ? ("text"): ("password")}
+            autoComplete="false"
             value={formData.password}
             onChange={changeHandler} 
             placeholder="Enter Password"
@@ -75,9 +77,10 @@ const LogInForm = ({setIsLoggedIn}) => {
             </p>
             </Link>
         </label>
-        <button className='bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6'>
+        <button type="submit" className='bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6'>
             Sign In
         </button>
+        <ToastContainer />
        </form>
     )
 }

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import logo from "../assets/Logo.png";
+import logo from "../assets/Logo.svg";
 import {Link} from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = (props) => {
     let isLoggedIn = props.isLoggedIn;
@@ -48,7 +48,7 @@ const Navbar = (props) => {
                   <Link to="/">
                   <button onClick={() => {
                     setIsLoggedIn(false);
-                    toast.success("Logged Out");
+                    toast.success("Logged out !")
                   }}
                   className='bg-richblack-800 text-richblack-100 py-[8px] 
                     px-[12px] rounded-[8px] border border-richblack-700'
@@ -63,6 +63,7 @@ const Navbar = (props) => {
                   </Link>
                 }
             </div>
+            <ToastContainer />
         </div>
     )
 }

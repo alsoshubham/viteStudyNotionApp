@@ -7,7 +7,7 @@ import SignupForm from "./SignupForm";
 import LogInForm from "./LogInForm";
 import Login from "../Pages/Login";
 
-const Template = ({title, desc1, desc2, image, formType, IsLoggedIn}) => {
+const Template = ({title, desc1, desc2, image, formType, setIsLoggedIn}) => {
     return(
         <div>
             <div>
@@ -21,8 +21,8 @@ const Template = ({title, desc1, desc2, image, formType, IsLoggedIn}) => {
                 </p>
 
                 {formType === "Signup" ?
-                (<SignupForm/>):
-                (<LogInForm/>)
+                (<SignupForm setIsLoggedIn={setIsLoggedIn}/>):
+                (<LogInForm setIsLoggedIn={setIsLoggedIn}/>)
                 }
 
                 <div>

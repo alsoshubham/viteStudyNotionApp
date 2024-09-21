@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Navbar from "../Components/Navbar";
 
-const Home = () => {
+const Home = ({isLoggedIn}) => {
     return(
-        <div>
+        <div className='flex justify-center items-center text-white text-3xl h-full'>
          home
         </div>
     )

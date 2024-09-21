@@ -10,26 +10,38 @@ const Navbar = (props) => {
     let setIsLoggedIn = props.setIsLoggedIn;
 
     return(
-        <div className="flex justify-evenly">
+        <div className='flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto'>
             <Link to="/">
-             <img src={logo} alt="Logo" width={160} height={32}/>
+             <img src={logo} alt="Logo" width={160} height={32} loading="lazy"/>
             </Link>
 
-            <nav className="flex  gap-3 bg-violet-400">
-                <ul><Link to="/">Home</Link></ul>
-                <ul><Link to="/About">About</Link></ul>
-                <ul><Link to="/Contact">Contact</Link></ul>
+            <nav>
+            <ul className='text-richblack-100 flex gap-x-6'>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/">About</Link>
+                </li>
+                <li>
+                    <Link to="/">Contact</Link>
+                </li>
+            </ul>
             </nav>
 
-            <div className="flex ml-5 mr-3 gap-3">
+            <div className="flex items-center gap-x-4">
                 { !isLoggedIn &&
                   <Link to="/Login">
-                  <button>Login</button>
+                  <button className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'
+                  >Login</button>
                   </Link>
                 }
                 { !isLoggedIn &&
                   <Link to="/Signup">
-                  <button>Sign Up</button>
+                  <button className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'
+                  >Sign Up</button>
                   </Link>
                 }
                 { isLoggedIn &&
@@ -37,16 +49,21 @@ const Navbar = (props) => {
                   <button onClick={() => {
                     setIsLoggedIn(false);
                     toast.success("Logged Out");
-                  }}>Log Out</button>
+                  }}
+                  className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'
+                  >Log Out</button>
                   </Link>
                 } 
                 { isLoggedIn &&
                   <Link to="/Dashboard">
-                  <button>Dashboard</button>
+                  <button className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'
+                  >Dashboard</button>
                   </Link>
                 }
             </div>
         </div>
     )
 }
-export default Navbar;
+export default Navbar

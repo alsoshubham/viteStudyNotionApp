@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Template from "../Components/Template";
-import SignupImg from "../assets/Signup.png";
+import SignupImg from "../assets/signup.png";
 
 const  Signup = ({setIsSignedUp}) => {
     return (

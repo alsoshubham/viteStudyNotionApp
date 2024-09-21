@@ -4,10 +4,10 @@ import React from "react";
 import logo from "../assets/Logo.svg";
 import {Link} from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = (props) => {
-    let isLoggedIn = props.isLoggedIn;
-    let setIsLoggedIn = props.setIsLoggedIn;
+    const {isLoggedIn, setIsLoggedIn, setFormState} = props;
 
     return(
         <div className='flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto'>
@@ -34,6 +34,7 @@ const Navbar = (props) => {
                   <Link to="/Login">
                   <button className='bg-richblack-800 text-richblack-100 py-[8px] 
                     px-[12px] rounded-[8px] border border-richblack-700'
+                    onClick={() => setFormState("Login")}
                   >Login</button>
                   </Link>
                 }
@@ -41,6 +42,7 @@ const Navbar = (props) => {
                   <Link to="/Signup">
                   <button className='bg-richblack-800 text-richblack-100 py-[8px] 
                     px-[12px] rounded-[8px] border border-richblack-700'
+                    onClick={() => setFormState("Signup")}
                   >Sign Up</button>
                   </Link>
                 }

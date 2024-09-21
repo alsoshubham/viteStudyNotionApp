@@ -12,13 +12,15 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [formState, setFormState] = useState("Signup");
+
   return (
     <div>
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} {...{setFormState}}/>
       <Routes>
         <Route path='/' element = {<Home/>}/>
-        <Route path='/Login' element = {<Login setIsLoggedIn={setIsLoggedIn}/>}/>
-        <Route path='/Signup' element = {<Signup/>}/>
+        <Route path='/Login' element = {<Login setIsLoggedIn={setIsLoggedIn} {...{formState}}/>}/>
+        <Route path='/Signup' element = {<Signup {...{formState}}/>}/>
         <Route  path='/Dashboard' element={<Dashboard/>}/>
       </Routes>
     </div>

@@ -15,7 +15,7 @@ function App() {
   const [formState, setFormState] = useState("Signup");
 
   return (
-    <div>
+    <div className='w-screen h-screen flex flex-col'>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} {...{setFormState}}/>
       <Routes>
         <Route path='/' element = {<Home/>}/>
